@@ -34,43 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Days Between.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Elementary/Days Between.py">
+      <file leaf-file-name="Break Rings(unsolved).py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Home/Break Rings(unsolved).py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="The end of other.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Elementary/The end of other.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Break Rings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home/Break Rings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-              <folding>
-                <element signature="e#1169#1205#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Slove Pangram.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Elementary/Slove Pangram.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2467191">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.60104984">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,6 +60,8 @@
         <option value="$PROJECT_DIR$/Elementary/The end of other.py" />
         <option value="$PROJECT_DIR$/Home/Break Rings.py" />
         <option value="$PROJECT_DIR$/Elementary/Slove Pangram.py" />
+        <option value="$PROJECT_DIR$/Home/the-most-frequent-weekdays.py" />
+        <option value="$PROJECT_DIR$/Home/Break Rings(unsolved).py" />
       </list>
     </option>
   </component>
@@ -197,8 +167,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Python\checkio\Elementary" />
       <recent name="E:\Python\checkio\Home" />
+      <recent name="E:\Python\checkio\Elementary" />
     </key>
   </component>
   <component name="RunManager" selected="Python.Slove Pangram">
@@ -458,6 +428,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="618473aa-7362-45dc-b5fd-9e61d20f613c" name="默认的" comment="" />
@@ -509,16 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home/Break Rings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-          <folding>
-            <element signature="e#1169#1205#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Elementary/Days Between.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -539,6 +502,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2467191">
           <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/the-most-frequent-weekdays.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/Break Rings(unsolved).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60104984">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
