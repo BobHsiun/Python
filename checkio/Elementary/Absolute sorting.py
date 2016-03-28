@@ -24,3 +24,8 @@ if __name__ == '__main__':
     assert check_it(checkio((-20, -5, 10, 15))) == [-5, 10, 15, -20], "Example"  # or (-5, 10, 15, -20)
     assert check_it(checkio((1, 2, 3, 0))) == [0, 1, 2, 3], "Positive numbers"
     assert check_it(checkio((-1, -2, -3, 0))) == [0, -1, -2, -3], "Negative numbers"
+
+
+#sorted()排序的参数
+# def checkio(numbers_array):
+#     return sorted(numbers_array, key=abs)
