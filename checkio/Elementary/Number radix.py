@@ -47,3 +47,9 @@ if __name__ == '__main__':
     assert checkio("Z", 36) == 35, "Z base"
     assert checkio("AB", 10) == -1, "B > A > 10"
 
+#学习解法
+# def checkio(str_number, radix):
+#     try:
+#         return int(str_number, radix)
+#     except ValueError:
+#         return -1
