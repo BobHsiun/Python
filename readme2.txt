@@ -1,0 +1,11 @@
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
+Start learn Python！
