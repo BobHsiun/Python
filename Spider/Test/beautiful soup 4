@@ -1,0 +1,22 @@
+Html网页
+1）创建BeautifulSoup对象
+from bs4 import BeautifulSoup
+soup=BeautifulSoup(
+                    html_doc,           #html文档字符串
+                    "html.parser"       #html解析器
+                    from_encoding='utf8'#html文档的编码
+                    )
+2）搜索节点 find_all、find
+find_all(name,attrs,string)
+
+3）访问节点
+名称、属性、文字
+node.name
+node['href']
+node.get_text()
+
+
+bs4文档：http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+
+
