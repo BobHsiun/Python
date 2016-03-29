@@ -12,7 +12,7 @@ class UrlManager(object):
             self.new_urls.add(url)
 
     def add_new_urls(self,urls):
-        if urls if None or len(urls) == 0:
+        if urls is None or len(urls) == 0:
             return
         for url in urls:
             self.add_new_url(url)

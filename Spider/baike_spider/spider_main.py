@@ -1,4 +1,4 @@
-from baike_spider import url_manager,html_downloader,html_parser,html_outputer
+from Spider.baike_spider import url_manager,html_downloader,html_parser,html_outputer
 
 class SpiderMain(object):
     def __init__(self):
@@ -9,9 +9,9 @@ class SpiderMain(object):
 
     def craw(self,root_url):
         count=1
-        self.urls.add_new_url(root_url)
+        self.urls.add_new_urls(root_url)
         while self.urls.has_new_url():
-            try:
+            #try:
                 new_url = self.urls.get_new_url()
                 print('craw %d : %s' %(count,new_url))
                 html_cont = self.downloader.download(new_url)
@@ -21,8 +21,8 @@ class SpiderMain(object):
                 if count == 1000:
                     break
                 count+=1
-            except:
-                print ('爬取失败')
+            #except:
+            #    print ('爬取失败')
         self.outputer.output_html()
 
 
