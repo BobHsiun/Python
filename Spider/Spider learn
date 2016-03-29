@@ -36,3 +36,16 @@ response = urllib2.urlopen（"http://www.baidu.com"）   使用带有cookie的ur
 
 
 网页解析器Beautiful Soup
+
+
+抓取百度百科
+入口页：http://baike.baidu.com/view/21087.htm
+URL格式：
+词条页面url：view/125370.html
+数据格式：
+-标题：
+    <dd class="lemmaWgt-lemmaTitle-title"><h1>Python</h1></dd>
+-简介：
+    <div class="lemma-summary" label-module="lemmaSummary">……</div>
+页面编码
+- UTF-8
