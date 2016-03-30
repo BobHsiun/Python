@@ -1,19 +1,28 @@
 class Building:
     def __init__(self, south, west, width_WE, width_NS, height=10):
-        raise NotImplementedError
+        self.south = south
+        self.west = west
+        self.width_WE = width_WE
+        self.width_NS = width_NS
+        self.height = height
+
 
     def corners(self):
-        raise NotImplementedError
+        cornersdic = {}
+        cornersdic["north-west"] = [self.south+self.width_NS,self.west]
+        cornersdic["north-east"] = [self.south+self.width_NS,self.west+self.width_WE]
+        cornersdic["south-west"] = [self.south,self.west]
+        cornersdic["south-east"] = [self.south,self.west+self.width_WE]
+        return cornersdic
 
     def area(self):
-        raise NotImplementedError
+        return self.width_WE*self.width_NS
 
     def volume(self):
-        raise NotImplementedError
+        return self.area()*self.height
 
     def __repr__(self):
-        raise NotImplementedError
-
+        return "Building(%s, %s, %s, %s, %s)" %(self.south,self.west,self.width_WE,self.width_NS,self.height)
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
