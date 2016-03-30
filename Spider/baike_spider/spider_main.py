@@ -12,18 +12,19 @@ class SpiderMain(object):
         self.urls.add_new_url(root_url)
         print("开始URL：",root_url)
         while self.urls.has_new_url():
-            #try:
-            new_url = self.urls.get_new_url()
-            print('第%d次抓取，抓取地址: %s' %(count,new_url))
-            html_cont = self.downloader.download(new_url)
-            new_urls, new_data = self.parser.parse(new_url, html_cont)
-            self.urls.add_new_urls(new_urls)
-            self.outputer.collect_data(new_data)
-            if count == 1000:
-                break
-            count+=1
-            #except:
-            #    print ('爬取失败')
+            try:
+                new_url = self.urls.get_new_url()
+                print('第%d次抓取，抓取地址: %s' %(count,new_url))
+                html_cont = self.downloader.download(new_url)
+                new_urls, new_data = self.parser.parse(new_url, html_cont)
+                self.urls.add_new_urls(new_urls)
+                self.outputer.collect_data(new_data)
+                if count == 5:
+                    break
+                count+=1
+            except Exception as e:
+                print(e)
+                print ('爬取失败')
         self.outputer.output_html()
 
 
