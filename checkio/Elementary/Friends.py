@@ -1,22 +1,50 @@
 class Friends:
     def __init__(self, connections):
-        self.connections = set(connections)
+        self.connections = [a for a in connections]
+        print("输入：",self.connections,type(self.connections))
+        self.conlist = list(self.connections)
         self.newset = set()
-        for con in connections:
-            self.newset = self.newset| con
 
     def add(self, connection):
-        raise NotImplementedError
+        if connection in self.conlist:
+            print("Add False")
+            return False
+        else:
+            self.conlist.append(connection)
+            print("add",self.conlist)
+            return True
 
     def remove(self, connection):
-        raise NotImplementedError
+        if connection in self.conlist:
+            self.conlist.remove(connection)
+            print("remove:",self.conlist)
+            return True
+        else:
+            print("Remove False")
+            return False
 
     def names(self):
-        return sorted(self.newset)
+        newset = set()
+        for i in self.conlist:
+            newset = newset | i
+        print("names:",set(sorted(newset)))
+        return set(sorted(newset))
 
     def connected(self, name):
-        raise NotImplementedError
-
+        nlist=[]
+        rset=set()
+        for i in self.conlist:
+            if name in i:
+                nlist.append(i)
+        print("关系列表：",nlist)
+        if len(nlist)==0:
+            return set()
+        else:
+            for l in nlist:
+                rset = rset | l
+            rset.remove(name)
+            print("关系集合：",rset)
+            return rset
 
 
 if __name__ == '__main__':
