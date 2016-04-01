@@ -1,4 +1,8 @@
 def checkio(teleports_string):
+    tellist=teleports_string.split(",")
+    print(tellist)
+    for i in range(1,9):
+
     #return any route from 1 to 1 over all points
 
     return "123456781"
