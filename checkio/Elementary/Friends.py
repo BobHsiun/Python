@@ -3,7 +3,6 @@ class Friends:
         self.connections = [a for a in connections]
         print("输入：",self.connections,type(self.connections))
         self.conlist = list(self.connections)
-        self.newset = set()
 
     def add(self, connection):
         if connection in self.conlist:
