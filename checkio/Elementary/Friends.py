@@ -36,14 +36,15 @@ class Friends:
         for i in self.conlist:
             if name in i:
                 nlist.append(i)
-        print("关系列表：",nlist)
+        print(name,"关系列表：",nlist)
         if len(nlist)==0:
-            return set()
+            print(name,"关系集合：",rset)
+            return rset
         else:
             for l in nlist:
                 rset = rset | l
             rset.remove(name)
-            print("关系集合：",rset)
+            print(name,"关系集合：",rset)
             return rset
 
 
@@ -58,3 +59,27 @@ if __name__ == '__main__':
     assert letter_friends.names() == {"a", "b", "c"}, "Names"
     assert letter_friends.connected("d") == set(), "Non connected name"
     assert letter_friends.connected("a") == {"b", "c"}, "Connected name"
+
+
+
+#其他解法学习
+# from itertools import chain
+# class Friends:
+#     def __init__(self, connections):
+#         self.connections = set(frozenset(c) for c in connections)
+#
+#     def add(self, connection):
+#         not_exist = connection not in self.connections
+#         self.connections.add(frozenset(connection))
+#         return not_exist
+#
+#     def remove(self, connection):
+#         exist = connection in self.connections
+#         self.connections.discard(connection)
+#         return exist
+#
+#     def names(self, connections=None):
+#         return set(chain.from_iterable(connections or self.connections))
+# ​
+#     def connected(self, name):
+#         return self.names((s for s in self.connections if name in s)) - {name}
