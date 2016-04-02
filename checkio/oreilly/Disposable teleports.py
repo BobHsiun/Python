@@ -1,8 +1,11 @@
 def checkio(teleports_string):
     tellist=teleports_string.split(",")
     print(tellist)
+    i=0
+    current = "1"
+    templist = [[x] for x in tellist if current in x]
 
-
+    print(templist)
     return True
 
 checkio("12,23,34,45,56,67,78,81")
