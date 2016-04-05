@@ -1,15 +1,64 @@
 def checkio(teleports_string):
-    tellist=teleports_string.split(",")
+    tellist = teleports_string.split(",")
     print(tellist)
-    i=0
-    current = "1"
-    templist = [[x] for x in tellist if current in x]
+    templist = ["1"]
+    while True:
+        tlist = []
+        for i in templist:
+            current = i[-1]
+            print("Current:", current)
+            print("Current-i:", i)
+            for i2 in tellist:
+                print("I2=",i2)
+                if current == i2[0] and i2[1] not in i:
+                    tlist.append(i + i2[1])
+                    print("current == i2[0] and i2[1] not in i:",tlist)
+                elif current == i2[1] and i2[0] not in i:
+                    tlist.append(i + i2[0])
+                    print("current == i2[1] and i2[0] not in i:",tlist)
+                else:
+                    if current == i2[0] and i2[1] != i[-2] and len(set(i)) < 8:
+                        tlist.append(i + i2[1])
+                        print("current == i2[0] and i2[1] != i[-2] and len(set(i)) < 8:",tlist)
+                    elif current == i2[1] and i2[0] != i[-2] and len(set(i)) < 8:
+                        tlist.append(i + i2[0])
+                        print(tlist)
+                    else:
+                        print("++len(set(i))",len(set(i)))
+                        if len(set(i)) == 8:
+                            print("come...")
+                            if current == i2[1] and i[0]!=i[-1] and i2[0] != i[-2]:
+                                tlist.append(i + i2[0])
+                                print("大于8-",tlist)
+                            elif current == i2[0] and i[0] != i[-1] and i2[1] != i[-2]:
+                                tlist.append(i + i2[1])
+                                print("大于++",tlist)
+                            else:
+                                print('???')
+                                break
+                        else:
+                            print("路过...",i2)
+                            continue
 
+
+            if len(set(i)) < 8:
+                templist = tlist[:]
+                print("当前结果：", templist)
+                continue
+            elif len(set(i)) == 8 and i[0] ==i[-1]:
+                templist = tlist[:]
+                break
+            else:
+                print('FFFFFFFFFFFFFFFFF')
+                continue
+
+        print("---")
     print(templist)
     return True
 
+
 checkio("12,23,34,45,56,67,78,81")
-#This part is using only for self-testing
+# This part is using only for self-testing
 # if __name__ == "__main__":
 #     def check_solution(func, teleports_str):
 #         route = func(teleports_str)
