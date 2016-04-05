@@ -1,9 +1,10 @@
 def checkio(teleports_string):
-    #return any route from 1 to 1 over all points
+    # return any route from 1 to 1 over all points
 
     return "123456781"
 
-#This part is using only for self-testing
+
+# This part is using only for self-testing
 if __name__ == "__main__":
     def check_solution(func, teleports_str):
         route = func(teleports_str)
@@ -24,6 +25,7 @@ if __name__ == "__main__":
                 print("You forgot about {0}".format(s))
                 return False
         return True
+
 
     assert check_solution(checkio, "12,23,34,45,56,67,78,81"), "First"
     assert check_solution(checkio, "12,28,87,71,13,14,34,35,45,46,63,65"), "Second"
