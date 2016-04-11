@@ -1,5 +1,6 @@
 def checkio(teleports_string):
 <<<<<<< HEAD
+<<<<<<< HEAD
     tellist = teleports_string.split(",")
     print(tellist)
     templist = ["1"]
@@ -43,8 +44,12 @@ def checkio(teleports_string):
 =======
     # return any route from 1 to 1 over all points
 >>>>>>> origin/master
+=======
+    # return any route from 1 to 1 over all points
+>>>>>>> refs/remotes/origin/master
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             if len(set(i)) < 8:
                 templist = tlist[:]
@@ -90,6 +95,8 @@ checkio("12,23,34,45,56,67,78,81")
 #     assert check_solution(checkio, "12,15,16,23,24,28,83,85,86,87,71,74,56"), "Third"
 #     assert check_solution(checkio, "13,14,23,25,34,35,47,56,58,76,68"), "Fourth"
 =======
+=======
+>>>>>>> refs/remotes/origin/master
 
 # This part is using only for self-testing
 if __name__ == "__main__":
@@ -118,4 +125,7 @@ if __name__ == "__main__":
     assert check_solution(checkio, "12,28,87,71,13,14,34,35,45,46,63,65"), "Second"
     assert check_solution(checkio, "12,15,16,23,24,28,83,85,86,87,71,74,56"), "Third"
     assert check_solution(checkio, "13,14,23,25,34,35,47,56,58,76,68"), "Fourth"
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> refs/remotes/origin/master
