@@ -1,61 +1,52 @@
+import time
 def checkio(teleports_string):
     tellist = teleports_string.split(",")
-    print(tellist)
-    templist = ["1"]
-    while True:
-        tlist = []
-        for i in templist:
-            current = i[-1]
-            print("Current:", current)
-            print("Current-i:", i)
-            for i2 in tellist:
-                print("I2=",i2)
-                if current == i2[0] and i2[1] not in i:
-                    tlist.append(i + i2[1])
-                    print("current == i2[0] and i2[1] not in i:",tlist)
-                elif current == i2[1] and i2[0] not in i:
-                    tlist.append(i + i2[0])
-                    print("current == i2[1] and i2[0] not in i:",tlist)
-                else:
-                    if current == i2[0] and i2[1] != i[-2] and len(set(i)) < 8:
-                        tlist.append(i + i2[1])
-                        print("current == i2[0] and i2[1] != i[-2] and len(set(i)) < 8:",tlist)
-                    elif current == i2[1] and i2[0] != i[-2] and len(set(i)) < 8:
-                        tlist.append(i + i2[0])
-                        print(tlist)
-                    else:
-                        print("++len(set(i))",len(set(i)))
-                        if len(set(i)) == 8:
-                            print("come...")
-                            if current == i2[1] and i[0]!=i[-1] and i2[0] != i[-2]:
-                                tlist.append(i + i2[0])
-                                print("大于8-",tlist)
-                            elif current == i2[0] and i[0] != i[-1] and i2[1] != i[-2]:
-                                tlist.append(i + i2[1])
-                                print("大于++",tlist)
-                            else:
-                                print('???')
-                                break
-                        else:
-                            print("路过...",i2)
-                            continue
-            if len(set(i)) < 8:
-                templist = tlist[:]
-                print("当前结果：", templist)
-                continue
-            elif len(set(i)) == 8 and i[0] ==i[-1]:
-                templist = tlist[:]
-                break
-            else:
-                print('FFFFFFFFFFFFFFFFF')
-                continue
+    print(tellist,teleports_string)
+    temlist=[]
+    rlist=['1']
+    result=[]
 
-        print("---")
-    print(templist)
+    while True:
+        temr=[]
+        for s in rlist:
+            current=s[-1]
+            print("S：",s)
+            for i in tellist:
+                if current in i and current==i[0] and i[1] not in s:
+                    temr.append(s+i[1])
+                elif current in i and current==i[1] and i[0] not in s:
+                    temr.append(s+i[0])
+                else:
+                    if len(set(s))==8:
+                        if current in i and current==i[0] and i[1]==s[0]:
+                            temr.append(s+i[1])
+                        elif current in i and current==i[1] and i[0]==s[0]:
+                            temr.append(s+i[0])
+                        else:
+                            temr.append(s)
+                    elif len(set(s))<8:
+                        if current in i and current==i[0] and i[1] in s and i[1] != s[-2]:
+                            temr.append(s+i[1])
+                        elif current in i and current==i[1] and i[0] in s and i[0] != s[-2]:
+                            temr.append(s+i[0])
+
+        if len(temr)>0:
+            rlist=temr[:]
+            for s in temr:
+                if len(set(s))==8 and s[0]==s[-1]:
+                    result.append(s)
+            print(":",rlist)
+        else:
+            print("结束")
+            break
+        time.sleep(2)
+
+
+
     return True
 
 
-checkio("12,23,34,45,56,67,78,81")  #测试
+checkio("12,28,87,71,13,14,34,35,45,46,63,65")  # 测试
 # This part is using only for self-testing
 # if __name__ == "__main__":
 #     def check_solution(func, teleports_str):
@@ -82,5 +73,3 @@ checkio("12,23,34,45,56,67,78,81")  #测试
 #     assert check_solution(checkio, "12,28,87,71,13,14,34,35,45,46,63,65"), "Second"
 #     assert check_solution(checkio, "12,15,16,23,24,28,83,85,86,87,71,74,56"), "Third"
 #     assert check_solution(checkio, "13,14,23,25,34,35,47,56,58,76,68"), "Fourth"
-
-
