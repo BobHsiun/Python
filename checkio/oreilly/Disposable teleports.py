@@ -55,7 +55,7 @@ def checkio(teleports_string):
     return True
 
 
-checkio("12,23,34,45,56,67,78,81")
+checkio("12,23,34,45,56,67,78,81")  #测试
 # This part is using only for self-testing
 # if __name__ == "__main__":
 #     def check_solution(func, teleports_str):
