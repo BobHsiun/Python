@@ -1,47 +1,47 @@
 import time
+
+
 def checkio(teleports_string):
     tellist = teleports_string.split(",")
-    print(tellist,teleports_string)
-    temlist=[]
-    rlist=['1']
-    result=[]
+    print(tellist, teleports_string)
+    temlist = []
+    rlist = ['1']
+    result = []
 
     while True:
-        temr=[]
+        temr = []
         for s in rlist:
-            current=s[-1]
-            print("S：",s)
+            current = s[-1]
+            print("S：", s)
             for i in tellist:
-                if current in i and current==i[0] and i[1] not in s:
-                    temr.append(s+i[1])
-                elif current in i and current==i[1] and i[0] not in s:
-                    temr.append(s+i[0])
+                if current in i and current == i[0] and i[1] not in s:
+                    temr.append(s + i[1])
+                elif current in i and current == i[1] and i[0] not in s:
+                    temr.append(s + i[0])
                 else:
-                    if len(set(s))==8:
-                        if current in i and current==i[0] and i[1]==s[0]:
-                            temr.append(s+i[1])
-                        elif current in i and current==i[1] and i[0]==s[0]:
-                            temr.append(s+i[0])
+                    if len(set(s)) == 8:
+                        if current in i and current == i[0] and i[1] == s[0]:
+                            temr.append(s + i[1])
+                        elif current in i and current == i[1] and i[0] == s[0]:
+                            temr.append(s + i[0])
                         else:
                             temr.append(s)
-                    elif len(set(s))<8:
-                        if current in i and current==i[0] and i[1] in s and i[1] != s[-2]:
-                            temr.append(s+i[1])
-                        elif current in i and current==i[1] and i[0] in s and i[0] != s[-2]:
-                            temr.append(s+i[0])
+                    elif len(set(s)) < 8:
+                        if current in i and current == i[0] and i[1] in s and i[1] != s[-2]:
+                            temr.append(s + i[1])
+                        elif current in i and current == i[1] and i[0] in s and i[0] != s[-2]:
+                            temr.append(s + i[0])
 
-        if len(temr)>0:
-            rlist=temr[:]
+        if len(temr) > 0:
+            rlist = temr[:]
             for s in temr:
-                if len(set(s))==8 and s[0]==s[-1]:
+                if len(set(s)) == 8 and s[0] == s[-1]:
                     result.append(s)
-            print(":",rlist)
+            print(":", rlist)
         else:
             print("结束")
             break
         time.sleep(2)
-
-
 
     return True
 
