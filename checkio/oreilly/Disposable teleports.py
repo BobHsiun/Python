@@ -1,49 +1,25 @@
-import time
-
-
 def checkio(teleports_string):
-    tellist = teleports_string.split(",")
-    print(tellist, teleports_string)
-    temlist = []
-    rlist = ['1']
-    result = []
-
-    while True:
-        temr = []
-        for s in rlist:
-            current = s[-1]
-            print("S：", s)
-            for i in tellist:
-                if current in i and current == i[0] and i[1] not in s:
-                    temr.append(s + i[1])
-                elif current in i and current == i[1] and i[0] not in s:
-                    temr.append(s + i[0])
-                else:
-                    if len(set(s)) == 8:
-                        if current in i and current == i[0] and i[1] == s[0]:
-                            temr.append(s + i[1])
-                        elif current in i and current == i[1] and i[0] == s[0]:
-                            temr.append(s + i[0])
-                        else:
-                            temr.append(s)
-                    elif len(set(s)) < 8:
-                        if current in i and current == i[0] and i[1] in s and i[1] != s[-2]:
-                            temr.append(s + i[1])
-                        elif current in i and current == i[1] and i[0] in s and i[0] != s[-2]:
-                            temr.append(s + i[0])
-
-        if len(temr) > 0:
-            rlist = temr[:]
-            for s in temr:
-                if len(set(s)) == 8 and s[0] == s[-1]:
-                    result.append(s)
-            print(":", rlist)
+    route = ['1']
+    portals = dict()
+    for i in teleports_string.split(','):
+        portals.setdefault(i[0], []).append(i[1])
+        portals.setdefault(i[1], []).append(i[0])
+    pre = 0
+    while len(set(route)) != 8 or route[-1] != '1':
+        current = route[-1]
+        curlist = [x for x in portals[current] if int(x) > int(pre)]
+        if len(curlist) == 0:
+            route.pop(-1)
+            pre = current
+            portals[pre].append(route[-1])
+            portals[route[-1]].append(pre)
         else:
-            print("结束")
-            break
-        time.sleep(2)
-
-    return True
+            m = min(curlist)
+            route.append(m)
+            portals[m].remove(current)
+            portals[current].remove(m)
+            pre = 0
+    return ''.join(route)
 
 
 checkio("12,28,87,71,13,14,34,35,45,46,63,65")  # 测试
