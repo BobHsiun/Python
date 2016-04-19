@@ -13,11 +13,13 @@ def checkio(teleports_string):
             pre = current
             portals[pre].append(route[-1])
             portals[route[-1]].append(pre)
+            print(route)
         else:
             m = min(curlist)
             route.append(m)
             portals[m].remove(current)
             portals[current].remove(m)
+            print(route)
             pre = 0
     return ''.join(route)
 
