@@ -1,3 +1,6 @@
+import re
+from copy import deepcopy
+
 COW = r'''
         \   ^__^
          \  (oo)\_______
@@ -5,23 +8,74 @@ COW = r'''
                 ||----w |
                 ||     ||
 '''
-TT = r''' ________________
-< Checkio rulezz >
- ----------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-'''
+
 def cowsay(text):
-    TTT = ""
-    if len(text) < 40:
-        l1 = " " + "_" * (len(text) + 2) + "\n"
-        l2 = "< " + text + " >\n"
-        l3 = " " + "-" * (len(text) + 2) + ""
-        TTT = '{0}{1}{2}{3}'.format(l1, l2, l3, COW)
-        return TTT
+    # 替换空格
+    newText = re.sub('\s+', ' ', text)
+    # 拆分单词成数列
+    elements = []
+    word = ''
+    for i in newText:
+        if i == ' ':
+            if word:
+                elements.append(word)
+                word = ''
+            elements.append(i)
+        else:
+            word += i
+            print(word)
+    if word:
+        elements.append(word)
+
+    # 把长度超过39的单词拆分
+    elementsCopy = deepcopy(elements)
+    for i, j in enumerate(elements):
+        if len(j) > 39:
+            print(i, j)
+            tempList = []
+            while len(j) > 39:
+                tempList.append(j[:39])
+                j = j[39:]
+            if j:
+                tempList.append(j)
+            elementsCopy = elementsCopy[:i] + tempList + elementsCopy[i + 1:]
+    elements = deepcopy(elementsCopy)
+
+    # arrange elements
+    lines = []
+    oneLine = ''
+    for i in elements:
+        if len(oneLine) + len(i) <= 39:
+            oneLine = oneLine + i
+        else:
+            if i == ' ':
+                pass
+            else:
+                if oneLine[-1] == ' ':
+                    lines.append(oneLine[:-1])
+                else:
+                    lines.append(oneLine)
+                oneLine = i
+    lines.append(oneLine)
+
+    # let the cow say
+    maxLength = max(map(len, lines))
+    if len(lines) == 1:
+        lines[0] = '< ' + lines[0] + ' >'
+    else:
+        formatString = '{:<%s}' % maxLength
+        print(formatString)
+        for i, j in enumerate(lines):
+            if i == 0:
+                lines[i] = '/ ' + formatString.format(j) + ' \\'
+                print(lines[i])
+            else:
+                lines[i] = '| ' + formatString.format(j) + ' |'
+        lines[i] = '\\ ' + formatString.format(j) + ' /'
+    lines = [' ' + '_' * (maxLength + 2)] + lines + \
+            [' ' + '-' * (maxLength + 2)]
+    return '\n{}{}'.format('\n'.join(lines), COW)
+
 
 if __name__ == '__main__':
     # These "asserts" using only for self-checking and not necessary for auto-testing
