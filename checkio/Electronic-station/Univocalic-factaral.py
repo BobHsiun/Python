@@ -1,8 +1,6 @@
-def a_factaral(num):
-    print(num,"======")
-    if num == 0:
-        return 1
-    return num * a_factaral(num - 1)
+f = lambda n :n*f(n-1) if n else 1
+a_factaral = f
+print(f(10))
 
 # this assertion should be stripped after self-testing.
 if __name__ == '__main__':
