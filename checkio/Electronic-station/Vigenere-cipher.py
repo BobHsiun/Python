@@ -60,15 +60,15 @@ if __name__ == '__main__':
                            'OCCSDQJEXA') == "LOREMIPSUM", "DOLORIUM"
 
 #学习新解法
-getkey=lambda d, e:chr((ord(e) - ord(d)) % (ord("Z") - ord("A") + 1) + ord("A"))
-decrypt=lambda e, k:getkey(k, e)
-​
-def normalize(key):
-    for n in range(1,len(key)+1):
-        if all(i + n >= len(key) or key[i] == key[i + n] for i in range(len(key))):
-            return key[:n]
-​
-def decode_vigenere(old_decrypted, old_encrypted, new_encrypted):
-    key = "".join(getkey(old_decrypted[i], old_encrypted[i]) for i in range(len(old_encrypted)))
-    key = normalize(key)
-    return "".join(decrypt(new_encrypted[i], key[i % len(key)]) for i in range(len(new_encrypted)))
+# getkey=lambda d, e:chr((ord(e) - ord(d)) % (ord("Z") - ord("A") + 1) + ord("A"))
+# decrypt=lambda e, k:getkey(k, e)
+# ​
+# def normalize(key):
+#     for n in range(1,len(key)+1):
+#         if all(i + n >= len(key) or key[i] == key[i + n] for i in range(len(key))):
+#             return key[:n]
+# ​
+# def decode_vigenere(old_decrypted, old_encrypted, new_encrypted):
+#     key = "".join(getkey(old_decrypted[i], old_encrypted[i]) for i in range(len(old_encrypted)))
+#     key = normalize(key)
+#     return "".join(decrypt(new_encrypted[i], key[i % len(key)]) for i in range(len(new_encrypted)))

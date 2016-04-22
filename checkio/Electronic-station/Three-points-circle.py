@@ -1,26 +1,29 @@
-def checkio(data):
-    def fline(point1,point2):
-        if point1[0]==point2[0]:#aX+bY=c  b=0
-            a1=1.0
-            b1=0.0
-            c1=point1[0]
-            return (a1,b1,c1)
-        elif point1[1]==point2[1]:#aX+bY=c  a=0
-            a2=0.0
-            b2=1.0
-            c2=point1[1]
-            return (a2,b2,c2)
-        else:#aX+bY=c  a、b ≠0
-            b=1
-            a=float((point1[1]-point2[1]/(point1[0]-point2[0]))
-            c=float((point1[1]-b)/point1[0])
-            return (a,1,c)
-        print(fline(data[0],data[1]))
+import math
 
-    #replace this for solution
-    return ""
+
+def get_circle_center_and_radius(x1, y1, x2, y2, x3, y3):
+    # http://okwave.jp/qa/q7112206.html
+    d = 2.0 * ((y1 - y3) * (x1 - x2) - (y1 - y2) * (x1 - x3))
+    x = ((y1 - y3) * (y1 ** 2 - y2 ** 2 + x1 ** 2 - x2 ** 2) - (y1 - y2)
+         * (y1 ** 2 - y3 ** 2 + x1 ** 2 - x3 ** 2)) / d
+    y = ((x1 - x3) * (x1 ** 2 - x2 ** 2 + y1 ** 2 - y2 ** 2) - (x1 - x2)
+         * (x1 ** 2 - x3 ** 2 + y1 ** 2 - y3 ** 2)) / -d
+    r = math.sqrt((x - x1) ** 2 + (y - y1) ** 2)
+    return (x, y), r
+
+
+def checkio(data):
+    (x1, y1), (x2, y2), (x3, y3) = eval(data)
+    (x0, y0), r = get_circle_center_and_radius(x1, y1, x2, y2, x3, y3)
+    return "(x-{:g})^2+(y-{:g})^2={:g}^2".format(round(x0, 2),
+                                                 round(y0, 2),
+                                                 round(r, 2))
+
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
     assert checkio("(2,2),(6,2),(2,6)") == "(x-4)^2+(y-4)^2=2.83^2"
+    
+    
+    
     assert checkio("(3,7),(6,9),(9,7)") == "(x-6)^2+(y-5.75)^2=3.25^2"

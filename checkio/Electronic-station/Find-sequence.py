@@ -1,24 +1,31 @@
-    import math
-
-
-def get_circle_center_and_radius(x1, y1, x2, y2, x3, y3):
-    # http://okwave.jp/qa/q7112206.html
-    d = 2.0 * ((y1 - y3) * (x1 - x2) - (y1 - y2) * (x1 - x3))
-    x = ((y1 - y3) * (y1 ** 2 - y2 ** 2 + x1 ** 2 - x2 ** 2) - (y1 - y2)
-         * (y1 ** 2 - y3 ** 2 + x1 ** 2 - x3 ** 2)) / d
-    y = ((x1 - x3) * (x1 ** 2 - x2 ** 2 + y1 ** 2 - y2 ** 2) - (x1 - x2)
-         * (x1 ** 2 - x3 ** 2 + y1 ** 2 - y3 ** 2)) / -d
-    r = math.sqrt((x - x1) ** 2 + (y - y1) ** 2)
-    return (x, y), r
-
-
-def checkio(data):
-    (x1, y1), (x2, y2), (x3, y3) = eval(data)
-    (x0, y0), r = get_circle_center_and_radius(x1, y1, x2, y2, x3, y3)
-    return "(x-{:g})^2+(y-{:g})^2={:g}^2".format(round(x0, 2),
-                                                 round(y0, 2),
-                                                 round(r, 2))
-
+def checkio(matrix):
+    #判断行
+    for l in matrix:
+        for n1 in range(0,len(l)-3):
+            if l[n1]==l[n1+1] and l[n1+1]==l[n1+2] and l[n1+2]==l[n1+3]:
+                print("Row")
+                return True
+    #判断列
+    for m1 in range(0,len(matrix)):
+        for m2 in range(0,len(matrix[0])-3):
+            if matrix[m2][m1]==matrix[m2+1][m1] and matrix[m2+1][m1]==matrix[m2+2][m1] and matrix[m2+2][m1]==matrix[m2+3][m1]:
+                print("Col")
+                return True
+    #判断对角
+    for x in range(0,len(matrix)-3):
+        for y in range(0,len(matrix[0])-3):
+            if matrix[y][x]==matrix[y+1][x+1]==matrix[y+2][x+2]==matrix[y+3][x+3]:
+                print("Diagonal\\")
+                return True
+    for q in range(0,len(matrix)-3):
+        N1=len(matrix)-1
+        N2=len(matrix[0])-1
+        for w in range(0,len(matrix[0])-3):
+            if matrix[N1-q][w]==matrix[N1-q-1][w+1]==matrix[N1-q-2][w+2]==matrix[N1-q-3][w+3]:
+                print("Diagona2\\")
+                return True
+    print("False")
+    return False
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
@@ -49,16 +56,3 @@ if __name__ == '__main__':
         [4, 6, 5, 1, 3, 1],
         [1, 1, 9, 1, 2, 1]
     ]) == True, "Diagonal"
-
-
-#更简单的解法
-def checkio(matrix, l=3):
-    q = range(len(matrix))
-    ls = lambda x:len(set(x))
-    for i in q:
-        for j in q:
-            if i+l in q and ls([matrix[i+n][j] for n in range(4)])==1: return True
-            if j+l in q and ls([matrix[i][j+n] for n in range(4)])==1: return True
-            if j+l in q and i+l in q and ls([matrix[i+n][j+n] for n in range(4)])==1: return True
-            if j-l in q and i+l in q and ls([matrix[i+n][j-n] for n in range(4)])==1: return True
-    return False
