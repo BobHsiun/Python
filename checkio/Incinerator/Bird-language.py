@@ -30,3 +30,21 @@ if __name__ == '__main__':
     assert translate("hoooowe yyyooouuu duoooiiine") == "how you doin", "Joey?"
     assert translate("aaa bo cy da eee fe") == "a b c d e f", "Alphabet"
     assert translate("sooooso aaaaaaaaa") == "sos aaa", "Mayday, mayday"
+
+
+
+import re
+
+def translate(phrase):
+    regexp=r'(?P(?P<f>[aeiouy])(?P=f){2})|(?P[bcdfghjklmnpqrstvwxz][aeiouy])|(?P.)'
+
+    def split(phrase):
+        print(re.finditer(regexp,phrase))
+        return ((m.lastgroup,m.groupdict()[m.lastgroup]) for m in re.finditer(regexp,phrase))
+
+    def replace(group,value):
+        return value if group=='other' else value[0]
+
+    return ''.join(replace(group,value) for group,value in split(phrase))
+
+
