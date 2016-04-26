@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'learn',
 	'addview',
 	'vartest',
+    'people',
 ]
 
 MIDDLEWARE_CLASSES = [

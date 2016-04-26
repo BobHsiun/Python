@@ -1,7 +1,30 @@
-﻿{{ string }}
-教程列表：
-{% for i in TutorialList %}
-<H1>
-{{ i }}
-</H1>
+﻿<html>
+<head>
+    <title>
+        Python Django 学习&测试！
+    </title>
+</head>
+<body align="center">
+{{ string }}
+    教程列表：
+    {% for i in info_dict %}
+<H3>
+    数字：{{ i }} {% if not forloop.last %},{% endif %}
+</H3>
+
 {% endfor %}
+<H1>登录名：{{ request.user }}</H1>
+
+{% if request.user.is_authenticated %}
+    {{ request.user.username }}，您好！
+{% else %}
+    请登陆，<a href="http://127.0.0.1:8000/admin/">Click me!</a>
+{% endif %}
+<br>
+当前网址:{{ request.path }}
+<br>
+当前Get参数：{{ request.GET.urlencode }}
+<br>
+<a href="{{ request.path }}?{{ request.GET.urlencode }}&delete=1">当前网址加参数 delete</a>
+</body>
+</html>
