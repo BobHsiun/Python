@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'learn',
-	'addview',
-	'vartest',
+    'addview',
+    'vartest',
     'people',
+    'blog',
 ]
 
 MIDDLEWARE_CLASSES = [
