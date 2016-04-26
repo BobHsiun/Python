@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'vartest',
     'people',
     'blog',
+    'tools',
 ]
 
 MIDDLEWARE_CLASSES = [
