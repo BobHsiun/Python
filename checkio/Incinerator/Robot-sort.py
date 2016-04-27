@@ -1,6 +1,16 @@
 def swapsort(array):
+    newarray = list(array)
+    result = []
+    while newarray!=sorted(array):
+        for n in range(1,len(array)):
+            if newarray[n] < newarray[n-1]:
+                temp = newarray[n]
+                newarray[n]=newarray[n-1]
+                newarray[n-1]=temp
+                result.append(str(n-1)+str(n))
+                break
 
-    return ""
+    return ",".join(result)
 
 
 if __name__ == '__main__':

@@ -23,14 +23,14 @@ if __name__ == '__main__':
 
 #学习新解法
 
-import collections
-​
-​
-def rotate(state, pipe_numbers):
-    result = []
-    queue = collections.deque(state)
-    for i in range(len(state)):
-        if all(queue[i] for i in pipe_numbers):
-            result.append(i)
-        queue.rotate(1)
-    return result
+# import collections
+# ​
+# ​
+# def rotate(state, pipe_numbers):
+#     result = []
+#     queue = collections.deque(state)
+#     for i in range(len(state)):
+#         if all(queue[i] for i in pipe_numbers):
+#             result.append(i)
+#         queue.rotate(1)
+#     return result

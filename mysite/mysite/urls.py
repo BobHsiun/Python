@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^add/(\d+)/(\d+)/$', add_test.add,name='add'),  # add
     url(r'^$', learn_views.home,name='home'),  # home
     url(r'^home$', test_var.home2,name='home2'),  # home
-    url(r'^forms$', 'tools.views.index', name='home'),
+    url(r'^forms$', 'tools.views.index', name='forms'),
 ]
