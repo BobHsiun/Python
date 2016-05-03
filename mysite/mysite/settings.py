@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'people',
     'blog',
     'tools',
+    'polls.apps.PollsConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
