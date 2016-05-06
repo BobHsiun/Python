@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import keys
 import unittest
 
 class NewVistorTest(unittest.TestCase):
@@ -19,7 +20,8 @@ class NewVistorTest(unittest.TestCase):
         self.fail('Finish the test!')
 
         # 应用邀请她输入一个待办事项
-        #
+        inputbox = self.browser.find_element_by_id('id_new_item')
+
         # 她在一个文本框中输入了“Buy peacock feathers”
         # 伊迪丝的爱好是使用假蝇做饵钓鱼
         #
