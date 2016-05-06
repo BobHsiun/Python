@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-# from learn import views as learn_views  # new
+from lists import views as listsViews
+#from learn import views as learn_views  # new
 # from addview import views as add_test
 # from vartest import views as test_var
 
@@ -27,6 +28,7 @@ urlpatterns = [
     # url(r'^add/(\d+)/(\d+)/$', add_test.add,name='add'),  # add
     # url(r'^home$', test_var.home2,name='home2'),  # home
     # url(r'^forms$', 'tools.views.index', name='forms'),
-    url(r'^$', 'learn.views.home', name='home'),  # home
+    #url(r'^$', 'learn.views.home', name='home'),  # home
+    url(r'^$', listsViews.home_page, name='home'),
     url(r'^polls/',include('polls.urls')),    #polls app
 ]
