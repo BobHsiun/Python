@@ -1,9 +1,11 @@
 {% extends "admin/base.html" %}
 
-{% block title %}{{ title }} | {{ site_title|default:_('XX的管理后台') }}{% endblock %}
+{% block title %}{{ title }} --XX的管理后台 {% endblock %}
+<!--{{ site_title|default:_('XX的管理后台') }}-->
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('XX的管理后台') }}</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">XX的管理后台</a></h1>
+<!--{{ site_header|default:_('XX的管理后台') }}-->
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

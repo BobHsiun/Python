@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'learn',
+    #'learn',
     # 'addview',
     # 'vartest',
     # 'people',
     # 'blog',
     # 'tools',
+    'learn',
     'polls.apps.PollsConfig',
 ]
 

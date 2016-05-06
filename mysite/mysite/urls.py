@@ -15,18 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from learn import views as learn_views  # new
-from addview import views as add_test
-from vartest import views as test_var
+# from learn import views as learn_views  # new
+# from addview import views as add_test
+# from vartest import views as test_var
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^111$', learn_views.index),  # new
-    url(r'^add/$', add_test.index,name='index'),  # add
-    url(r'^add/(\d+)/(\d+)/$', add_test.add,name='add'),  # add
-    url(r'^$', learn_views.home,name='home'),  # home
-    url(r'^home$', test_var.home2,name='home2'),  # home
-    url(r'^forms$', 'tools.views.index', name='forms'),
+    # url(r'^111$', learn_views.index),  # new
+    # url(r'^add/$', add_test.index,name='index'),  # add
+    # url(r'^add/(\d+)/(\d+)/$', add_test.add,name='add'),  # add
+    # url(r'^home$', test_var.home2,name='home2'),  # home
+    # url(r'^forms$', 'tools.views.index', name='forms'),
+    url(r'^$', 'learn.views.home', name='home'),  # home
     url(r'^polls/',include('polls.urls')),    #polls app
 ]
