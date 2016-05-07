@@ -14,7 +14,7 @@ class NewVistorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # 伊迪丝听说有一个很酷的在线待办事项应用
         # 她去看了这个应用的首页
-        self.browser.get('http://localhost:8000')
+        self.browser.get('http://127.0.0.1:8000')
 
         # 她注意到网页的标题和头部都包含“To-Do”这个词
         self.assertIn('To-Do', self.browser.title)
@@ -37,7 +37,7 @@ class NewVistorTest(unittest.TestCase):
         # time.sleep(10)
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.text == '1:Buy peacock feathers' for row in rows),"New to-do item did not appear in table")
+        self.assertIn('1:Buy peacock feathers',[row.text for row in rows])
 
         # 页面中又显示了一个文本框，可以输入其他的待办事项
         # 她输入了“Use peacock feather to make a fly”
