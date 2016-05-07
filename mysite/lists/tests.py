@@ -8,11 +8,10 @@ from .views import home_page
 
 
 class HomePageTest(TestCase):
-
     def test_root_url_resolves_to_home_view(self):
         found = resolve('/')
-        print(found.func,home_page)
-        self.assertEqual(found.func,home_page)
+        print(found.func, home_page)
+        self.assertEqual(found.func, home_page)
 
     # def test_home_page_return_correct_html(self):
     #     request = HttpRequest()
@@ -25,10 +24,10 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = home_page(request)
 
-        expected_html = render_to_string('lists/home.html',request=request)
-        print(response.content.decode(),response)
-        print(expected_html)
-        self.assertEqual(response.content.decode(),expected_html)
+        expected_html = render_to_string('lists/home.html', request=request)
+        # print(response.content.decode(),response)
+        # print(expected_html)
+        self.assertEqual(response.content.decode(), expected_html)
 
     def test_home_page_can_save_a_POST_request(self):
         request = HttpRequest()
@@ -36,7 +35,15 @@ class HomePageTest(TestCase):
         request.POST['item_text'] = 'A new list item'
 
         response = home_page(request)
+
+        self.assertEqual(Item.objects.all().count(), 1)
+        new_item = Item.objects.all()[0]
+        self.assertEqual(new_item.text, 'A new list item')
+
         self.assertIn('A new list item', response.content.decode())
+        expected_html = render_to_string('lists/home.html', {'new_item_text': 'A new list item'})
+        self.assertEqual(response.content.decode(), expected_html)
+
 
 class ItemModelTest(TestCase):
     def test_saving_and_retrieving_items(self):
@@ -49,7 +56,7 @@ class ItemModelTest(TestCase):
         second_item.save()
 
         saved_items = Item.objects.all()
-        self.assertEqual(saved_items.count(),2)
+        self.assertEqual(saved_items.count(), 2)
 
         first_saved_item = saved_items[0]
         second_saved_item = saved_items[1]
