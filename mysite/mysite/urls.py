@@ -30,5 +30,6 @@ urlpatterns = [
     # url(r'^forms$', 'tools.views.index', name='forms'),
     #url(r'^$', 'learn.views.home', name='home'),  # home
     url(r'^$', listsViews.home_page, name='home'),
+    url(r'^lists/the-only-list-in-the-world/$', listsViews.view_list, name='view_list'),
     url(r'^polls/',include('polls.urls')),    #polls app
 ]

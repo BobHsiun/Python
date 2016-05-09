@@ -4,19 +4,10 @@
     <title>To-Do lists</title>
     </head>
     <body align="center">
-        <h1>Your To-Do list</h1>
+        <h1>Start a new To-Do list</h1>
         <form method="POST">
             <input name="item_text" id="id_new_item" placeholder="Enter a to-do item"/>
             {% csrf_token %}
         </form>
-
-        <table id="id_list_table" border="1" align="center" cellspacing="0" bordercolor="pink">
-            {% for item in items %}
-                <tr ><td>{{ forloop.counter }}:{{ item.text }}</td></tr>
-            {% endfor %}
-        </table>
-
-        <br>
-
     </body>
 </html>
