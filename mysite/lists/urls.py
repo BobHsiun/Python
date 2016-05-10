@@ -22,14 +22,7 @@ from lists import views as listsViews
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    # url(r'^111$', learn_views.index),  # new
-    # url(r'^add/$', add_test.index,name='index'),  # add
-    # url(r'^add/(\d+)/(\d+)/$', add_test.add,name='add'),  # add
-    # url(r'^home$', test_var.home2,name='home2'),  # home
-    # url(r'^forms$', 'tools.views.index', name='forms'),
-    #url(r'^$', 'learn.views.home', name='home'),  # home
-    url(r'^$', listsViews.home_page, name='home'),
-    url(r'^lists/', include('lists.urls')),
-    url(r'^polls/',include('polls.urls')),    #polls app
+    url(r'^(\d+)/$', listsViews.view_list, name='view_list'),
+    url(r'^(\d+)/add_item$', listsViews.add_item, name='add_item'),
+    url(r'^new$', listsViews.new_list, name='new_list'),
 ]
