@@ -28,8 +28,8 @@ urlpatterns = [
     # url(r'^add/(\d+)/(\d+)/$', add_test.add,name='add'),  # add
     # url(r'^home$', test_var.home2,name='home2'),  # home
     # url(r'^forms$', 'tools.views.index', name='forms'),
-    #url(r'^$', 'learn.views.home', name='home'),  # home
+    # url(r'^$', 'learn.views.home', name='home'),  # home
     url(r'^$', listsViews.home_page, name='home'),
     url(r'^lists/', include('lists.urls')),
-    url(r'^polls/',include('polls.urls')),    #polls app
+    # url(r'^polls/',include('polls.urls')),    #polls app
 ]
