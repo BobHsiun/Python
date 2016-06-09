@@ -8,11 +8,10 @@ class ItemValidationTest(FunctionalTest):
         #输入框中没输入内容,她就按下了回车键
         self.browser.get(self.server_url)
         self.browser.find_element_by_id('id_new_item').send_keys('\n')
-
         #首页刷新了,显示了一个错误信息
         #提示待办事项不能为空
         error = self.browser.find_element_by_css_selector('.has.error')
-        self.assertEqual(error.text,"You can't have an empty list item")
+        self.assertEqual(error.text,"You cant have an empty list item")
 
         #她输入了一些文字,然后再次提交,这次没有问题了
         self.browser.find_element_by_id('id_new_item').send_keys('Buy milk\n')
